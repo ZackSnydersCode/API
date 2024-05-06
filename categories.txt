@@ -1,0 +1,10 @@
+timeFrame = [7---9---1---4---7]
+--->        [exercise-->breakfast-->lunch-->coffee-->dinner]
+physical, 
+intellectual, 
+emotional, 
+social, 
+spiritual,
+vocational, 
+financial, 
+sexual
