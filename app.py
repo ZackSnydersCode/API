@@ -34,7 +34,7 @@ def Desire():
 @app.route('/applycustomtemplate',methods=['GET'])
 def applyCustomTemplate():
     data = request.args.get('data')
-    my_pexels_key = os.environ.get('my_pexels_key')
+    my_pexels_key = "3F5Q1kY3jFYMs27tFm0bh6EEHlJfvVOAEcK8do9QKHVaQUcIJNajlPDM"
     sourceURL = "https://api.pexels.com/v1/search"
     headers = {
         "Authorization":my_pexels_key
