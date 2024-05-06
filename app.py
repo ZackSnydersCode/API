@@ -1,5 +1,6 @@
 from flask import Flask,request,jsonify
 import json
+import requests
 
 app = Flask("__name__")
 
@@ -28,6 +29,28 @@ def Desire():
                 return jsonify({'Template':i})
             return jsonify({'Template':2})
         return jsonify({'Template':3})
+
+@app.route('/applycustomtemplate',methods=['GET'])
+def applyCustomTemplate():
+    data = request.args.get('data')
+    my_pexels_key = 'my_pexels_key'
+    sourceURL = "https://api.pexels.com/v1/search"
+    headers = {
+        "Authorization":my_pexels_key
+    }
+    params = {
+        "query":data,
+        "per_page":1,
+        "page":1
+    }
+
+    response = requests.get(sourceURL,headers=headers,params=params)
+    if response.status_code == 200:
+        photo = response.json()
+        return jsonify({'photo':photo})
+    else:
+        return jsonify({'photo':''})
+    
 
 
 
