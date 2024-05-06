@@ -1,6 +1,7 @@
 from flask import Flask,request,jsonify
 import json
 import requests
+import os
 
 app = Flask("__name__")
 
@@ -33,7 +34,7 @@ def Desire():
 @app.route('/applycustomtemplate',methods=['GET'])
 def applyCustomTemplate():
     data = request.args.get('data')
-    my_pexels_key = 'my_pexels_key'
+    my_pexels_key = os.environ.get('my_pexels_key')
     sourceURL = "https://api.pexels.com/v1/search"
     headers = {
         "Authorization":my_pexels_key
