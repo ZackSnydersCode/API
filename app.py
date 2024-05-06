@@ -44,14 +44,16 @@ def applyCustomTemplate():
         "per_page":1,
         "page":1
     }
-
-    response = requests.get(sourceURL,headers=headers,params=params)
-    if response.status_code == 200:
+    try:
+     response = requests.get(sourceURL,headers=headers,params=params)
+     if response.status_code == 200:
         photo = response.json()
         return jsonify({'photo':photo})
-    else:
+     else:
         return jsonify({'photo':''})
-    
+    except requests.RequestException as e:
+        return jsonify({'err':e})
+
 
 
 
